@@ -1,6 +1,6 @@
-^C:\USERS\INOUESHINICHI\DESKTOP\121_WIN32\WIN32VSCODECMAKE\BUILD\CMAKEFILES\1A396C050AE620E38194B9E078A0AA33\GENERATE.STAMP.RULE
+^C:\USERS\INOUE\DESKTOP\WIN32NATIVEGUIAPP\BUILD\CMAKEFILES\6035146FD533A974CEEE3198F13AC9C8\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake -BC:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/Win32VSCodeCMake.sln
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/inoue/Desktop/Win32NativeGuiApp -BC:/Users/inoue/Desktop/Win32NativeGuiApp/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/inoue/Desktop/Win32NativeGuiApp/build/Win32NativeGuiApp.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

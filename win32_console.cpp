@@ -1,5 +1,4 @@
 #include "win32_console.hpp"
-
 #include "exception.hpp"
 
 
@@ -117,7 +116,7 @@ namespace Is
 			if (!GetConsoleMode(m_hIn, &m_inputConsoleMode))
 			{
 				// 失敗
-				ShowWin32APIError(m_hWnd, CString("入力バッファモードの取得失敗")); // Win32 API エラーメッセージを取得
+				win32api_error(m_hWnd, CString("入力バッファモードの取得失敗")); // Win32 API エラーメッセージを取得
 				return Win32ConsoleStatus::CNSL_ERR_INPUT_MODE;
 			}
 
@@ -125,7 +124,7 @@ namespace Is
 			if (!GetConsoleMode(m_hOut, &m_outputConsoleMode))
 			{
 				// 失敗
-				ShowWin32APIError(m_hWnd, CString("スクリーンバッファモードの取得失敗")); // Win32 API エラーメッセージを取得
+				win32api_error(m_hWnd, CString("スクリーンバッファモードの取得失敗")); // Win32 API エラーメッセージを取得
 				return Win32ConsoleStatus::CNSL_ERR_SCREEN_MODE;
 			}
 		}
@@ -193,14 +192,14 @@ namespace Is
 				{
 					// 失敗
 					OutputDebugString(CString("\n***** Output: Disable ANSI-Escape Sequence *****\n"));
-					ShowWin32APIError(m_hWnd, CString("スクリーンバッファモードのANSI ESCAPEの有効化失敗")); // Win32 API エラーメッセージを取得
+					win32api_error(m_hWnd, CString("スクリーンバッファモードのANSI ESCAPEの有効化失敗.")); // Win32 API エラーメッセージを取得
 					return Win32ConsoleStatus::CNSL_ERR_ANSI_ESCAPE_SCREEN;
 				}
 			}
 			else
 			{
 				// 標準出力につながっていない
-				ShowWin32APIError(m_hWnd, CString("標準出力に未接続")); // Win32 API エラーメッセージを取得
+				win32api_error(m_hWnd, "標準出力に未接続"); // Win32 API エラーメッセージを取得
 				return Win32ConsoleStatus::CNSL_ERR_NO_STD_OUTPUT;
 			}
 

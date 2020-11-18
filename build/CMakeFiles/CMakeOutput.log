@@ -1,49 +1,4 @@
-The system is: Windows - 10.0.18362 - AMD64
-Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler:  
-Build flags: 
-Id flags:  
-
-The output was:
-0
-.NET Framework Œü‚¯ Microsoft (R) Build Engine ƒo[ƒWƒ‡ƒ“ 16.7.0+b89cb5fde
-Copyright (C) Microsoft Corporation.All rights reserved.
-
-2020/11/03 22:42:31 ‚Éƒrƒ‹ƒh‚ðŠJŽn‚µ‚Ü‚µ‚½B
-ƒm[ƒh 1 ã‚ÌƒvƒƒWƒFƒNƒg "C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\3.14.6\CompilerIdC\CompilerIdC.vcxproj" (Šù’è‚Ìƒ^[ƒQƒbƒg)B
-PrepareForBuild:
-  ƒfƒBƒŒƒNƒgƒŠ "Debug\" ‚ðì¬‚µ‚Ä‚¢‚Ü‚·B
-  ƒfƒBƒŒƒNƒgƒŠ "Debug\CompilerIdC.tlog\" ‚ðì¬‚µ‚Ä‚¢‚Ü‚·B
-InitializeBuildStatus:
-  "AlwaysCreate" ‚ªŽw’è‚³‚ê‚½‚½‚ß "Debug\CompilerIdC.tlog\unsuccessfulbuild" ‚ðì¬‚µ‚Ä‚¢‚Ü‚·B
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
-  CMakeCCompilerId.c
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X64 Debug\CMakeCCompilerId.obj
-  CompilerIdC.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\3.14.6\CompilerIdC\.\CompilerIdC.exe
-PostBuildEvent:
-  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
-  :VCEnd
-  CMAKE_C_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx64\x64\cl.exe
-FinalizeBuildStatus:
-  ƒtƒ@ƒCƒ‹ "Debug\CompilerIdC.tlog\unsuccessfulbuild" ‚ðíœ‚µ‚Ä‚¢‚Ü‚·B
-  "Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate" ‚Ìƒ^ƒbƒ` ƒ^ƒXƒN‚ðŽÀs‚µ‚Ä‚¢‚Ü‚·B
-ƒvƒƒWƒFƒNƒg "C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\3.14.6\CompilerIdC\CompilerIdC.vcxproj" (Šù’è‚Ìƒ^[ƒQƒbƒg) ‚Ìƒrƒ‹ƒh‚ªŠ®—¹‚µ‚Ü‚µ‚½B
-
-ƒrƒ‹ƒh‚É¬Œ÷‚µ‚Ü‚µ‚½B
-    0 ŒÂ‚ÌŒx
-    0 ƒGƒ‰[
-
-Œo‰ßŽžŠÔ 00:00:01.02
-
-
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
-
-Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
-
-The C compiler identification is MSVC, found in "C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/3.14.6/CompilerIdC/CompilerIdC.exe"
-
+The system is: Windows - 10.0.19041 - AMD64
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler:  
 Build flags: 
@@ -51,187 +6,55 @@ Id flags:
 
 The output was:
 0
-.NET Framework Œü‚¯ Microsoft (R) Build Engine ƒo[ƒWƒ‡ƒ“ 16.7.0+b89cb5fde
+.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.8.1+bd2ea1e3c
 Copyright (C) Microsoft Corporation.All rights reserved.
 
-2020/11/03 22:42:33 ‚Éƒrƒ‹ƒh‚ðŠJŽn‚µ‚Ü‚µ‚½B
-ƒm[ƒh 1 ã‚ÌƒvƒƒWƒFƒNƒg "C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\3.14.6\CompilerIdCXX\CompilerIdCXX.vcxproj" (Šù’è‚Ìƒ^[ƒQƒbƒg)B
+2020/11/18 14:54:12 ã«ãƒ“ãƒ«ãƒ‰ã‚’é–‹å§‹ã—ã¾ã—ãŸã€‚
+ãƒŽãƒ¼ãƒ‰ 1 ä¸Šã®ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ "C:\Users\inoue\Desktop\Win32NativeGuiApp\build\CMakeFiles\3.18.20081302-MSVC_2\CompilerIdCXX\CompilerIdCXX.vcxproj" (æ—¢å®šã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ)ã€‚
 PrepareForBuild:
-  ƒfƒBƒŒƒNƒgƒŠ "Debug\" ‚ðì¬‚µ‚Ä‚¢‚Ü‚·B
-  ƒfƒBƒŒƒNƒgƒŠ "Debug\CompilerIdCXX.tlog\" ‚ðì¬‚µ‚Ä‚¢‚Ü‚·B
+  ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª "Debug\" ã‚’ä½œæˆã—ã¦ã„ã¾ã™ã€‚
+  ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª "Debug\CompilerIdCXX.tlog\" ã‚’ä½œæˆã—ã¦ã„ã¾ã™ã€‚
 InitializeBuildStatus:
-  "AlwaysCreate" ‚ªŽw’è‚³‚ê‚½‚½‚ß "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" ‚ðì¬‚µ‚Ä‚¢‚Ü‚·B
+  "AlwaysCreate" ãŒæŒ‡å®šã•ã‚ŒãŸãŸã‚ "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" ã‚’ä½œæˆã—ã¦ã„ã¾ã™ã€‚
 ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX64\x64\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc142.pdb" /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
   CMakeCXXCompilerId.cpp
 Link:
-  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\HostX64\x64\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X64 Debug\CMakeCXXCompilerId.obj
-  CompilerIdCXX.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\3.14.6\CompilerIdCXX\.\CompilerIdCXX.exe
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\HostX64\x64\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdCXX.lib" /MACHINE:X64 Debug\CMakeCXXCompilerId.obj
+  CompilerIdCXX.vcxproj -> C:\Users\inoue\Desktop\Win32NativeGuiApp\build\CMakeFiles\3.18.20081302-MSVC_2\CompilerIdCXX\CompilerIdCXX.exe
 PostBuildEvent:
   for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
   :VCEnd
-  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\bin\Hostx64\x64\cl.exe
+  CMAKE_CXX_COMPILER=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29333\bin\Hostx64\x64\cl.exe
 FinalizeBuildStatus:
-  ƒtƒ@ƒCƒ‹ "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" ‚ðíœ‚µ‚Ä‚¢‚Ü‚·B
-  "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate" ‚Ìƒ^ƒbƒ` ƒ^ƒXƒN‚ðŽÀs‚µ‚Ä‚¢‚Ü‚·B
-ƒvƒƒWƒFƒNƒg "C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\3.14.6\CompilerIdCXX\CompilerIdCXX.vcxproj" (Šù’è‚Ìƒ^[ƒQƒbƒg) ‚Ìƒrƒ‹ƒh‚ªŠ®—¹‚µ‚Ü‚µ‚½B
+  ãƒ•ã‚¡ã‚¤ãƒ« "Debug\CompilerIdCXX.tlog\unsuccessfulbuild" ã‚’å‰Šé™¤ã—ã¦ã„ã¾ã™ã€‚
+  "Debug\CompilerIdCXX.tlog\CompilerIdCXX.lastbuildstate" ã®ã‚¿ãƒƒãƒ ã‚¿ã‚¹ã‚¯ã‚’å®Ÿè¡Œã—ã¦ã„ã¾ã™ã€‚
+ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ "C:\Users\inoue\Desktop\Win32NativeGuiApp\build\CMakeFiles\3.18.20081302-MSVC_2\CompilerIdCXX\CompilerIdCXX.vcxproj" (æ—¢å®šã®ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ) ã®ãƒ“ãƒ«ãƒ‰ãŒå®Œäº†ã—ã¾ã—ãŸã€‚
 
-ƒrƒ‹ƒh‚É¬Œ÷‚µ‚Ü‚µ‚½B
-    0 ŒÂ‚ÌŒx
-    0 ƒGƒ‰[
+ãƒ“ãƒ«ãƒ‰ã«æˆåŠŸã—ã¾ã—ãŸã€‚
+    0 å€‹ã®è­¦å‘Š
+    0 ã‚¨ãƒ©ãƒ¼
 
-Œo‰ßŽžŠÔ 00:00:00.70
+çµŒéŽæ™‚é–“ 00:00:01.18
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
 
-The CXX compiler identification is MSVC, found in "C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/3.14.6/CompilerIdCXX/CompilerIdCXX.exe"
-
-Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_af3b9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m 
-.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.7.0+b89cb5fde
-Copyright (C) Microsoft Corporation.All rights reserved.
-
-  Microsoft(R) C/C++ Optimizing Compiler Version 19.27.29111 for x64
-  testCCompiler.c
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_af3b9.dir\Debug\\" /Fd"cmTC_af3b9.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\testCCompiler.c
-  cmTC_af3b9.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\Debug\cmTC_af3b9.exe
-
-
-Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_439ea.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m 
-.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.7.0+b89cb5fde
-Copyright (C) Microsoft Corporation.All rights reserved.
-
-  Microsoft(R) C/C++ Optimizing Compiler Version 19.27.29111 for x64
-  CMakeCCompilerABI.c
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_439ea.dir\Debug\\" /Fd"cmTC_439ea.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue "C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCCompilerABI.c"
-  cmTC_439ea.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\Debug\cmTC_439ea.exe
-
-
-
-
-Detecting C [] compiler features compiled with the following output:
-Change Dir: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_98e81.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m 
-.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.7.0+b89cb5fde
-Copyright (C) Microsoft Corporation.All rights reserved.
-
-  Microsoft(R) C/C++ Optimizing Compiler Version 19.27.29111 for x64
-  feature_tests.c
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_98e81.dir\Debug\\" /Fd"cmTC_98e81.dir\Debug\vc142.pdb" /Gd /TC /errorReport:queue C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\feature_tests.c
-  cmTC_98e81.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\Debug\cmTC_98e81.exe
-
-
-    Feature record: C_FEATURE:1c_function_prototypes
-    Feature record: C_FEATURE:1c_variadic_macros
-Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_557d2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m 
-.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.7.0+b89cb5fde
-Copyright (C) Microsoft Corporation.All rights reserved.
-
-  Microsoft(R) C/C++ Optimizing Compiler Version 19.27.29111 for x64
-  testCXXCompiler.cxx
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_557d2.dir\Debug\\" /Fd"cmTC_557d2.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
-  cmTC_557d2.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\Debug\cmTC_557d2.exe
-
+The CXX compiler identification is MSVC, found in "C:/Users/inoue/Desktop/Win32NativeGuiApp/build/CMakeFiles/3.18.20081302-MSVC_2/CompilerIdCXX/CompilerIdCXX.exe"
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/inoue/Desktop/Win32NativeGuiApp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_26243.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m 
-.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.7.0+b89cb5fde
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_27178.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && .NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.8.1+bd2ea1e3c
 Copyright (C) Microsoft Corporation.All rights reserved.
 
-  Microsoft(R) C/C++ Optimizing Compiler Version 19.27.29111 for x64
+  Microsoft(R) C/C++ Optimizing Compiler Version 19.28.29333 for x64
+  Copyright (C) Microsoft Corporation.  All rights reserved.
   CMakeCXXCompilerABI.cpp
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_26243.dir\Debug\\" /Fd"cmTC_26243.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "C:\Program Files\CMake\share\cmake-3.14\Modules\CMakeCXXCompilerABI.cpp"
-  cmTC_26243.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\Debug\cmTC_26243.exe
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_27178.dir\Debug\\" /Fd"cmTC_27178.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.18\Modules\CMakeCXXCompilerABI.cpp"
+  cmTC_27178.vcxproj -> C:\Users\inoue\Desktop\Win32NativeGuiApp\build\CMakeFiles\CMakeTmp\Debug\cmTC_27178.exe
 
 
 
-
-Detecting CXX [] compiler features compiled with the following output:
-Change Dir: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_1d413.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m 
-.NET Framework å‘ã‘ Microsoft (R) Build Engine ãƒãƒ¼ã‚¸ãƒ§ãƒ³ 16.7.0+b89cb5fde
-Copyright (C) Microsoft Corporation.All rights reserved.
-
-  Microsoft(R) C/C++ Optimizing Compiler Version 19.27.29111 for x64
-  feature_tests.cxx
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_1d413.dir\Debug\\" /Fd"cmTC_1d413.dir\Debug\vc142.pdb" /Gd /TP /errorReport:queue C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\feature_tests.cxx
-  cmTC_1d413.vcxproj -> C:\Users\InoueShinichi\Desktop\121_Win32\Win32VSCodeCMake\build\CMakeFiles\CMakeTmp\Debug\cmTC_1d413.exe
-
-
-    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
-    Feature record: CXX_FEATURE:1cxx_alias_templates
-    Feature record: CXX_FEATURE:1cxx_alignas
-    Feature record: CXX_FEATURE:1cxx_alignof
-    Feature record: CXX_FEATURE:1cxx_attributes
-    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
-    Feature record: CXX_FEATURE:1cxx_auto_type
-    Feature record: CXX_FEATURE:1cxx_binary_literals
-    Feature record: CXX_FEATURE:1cxx_constexpr
-    Feature record: CXX_FEATURE:1cxx_contextual_conversions
-    Feature record: CXX_FEATURE:1cxx_decltype
-    Feature record: CXX_FEATURE:1cxx_decltype_auto
-    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
-    Feature record: CXX_FEATURE:1cxx_default_function_template_args
-    Feature record: CXX_FEATURE:1cxx_defaulted_functions
-    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
-    Feature record: CXX_FEATURE:1cxx_delegating_constructors
-    Feature record: CXX_FEATURE:1cxx_deleted_functions
-    Feature record: CXX_FEATURE:1cxx_digit_separators
-    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
-    Feature record: CXX_FEATURE:1cxx_explicit_conversions
-    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
-    Feature record: CXX_FEATURE:1cxx_extern_templates
-    Feature record: CXX_FEATURE:1cxx_final
-    Feature record: CXX_FEATURE:1cxx_func_identifier
-    Feature record: CXX_FEATURE:1cxx_generalized_initializers
-    Feature record: CXX_FEATURE:1cxx_generic_lambdas
-    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
-    Feature record: CXX_FEATURE:1cxx_inline_namespaces
-    Feature record: CXX_FEATURE:1cxx_lambdas
-    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
-    Feature record: CXX_FEATURE:1cxx_local_type_template_args
-    Feature record: CXX_FEATURE:1cxx_long_long_type
-    Feature record: CXX_FEATURE:1cxx_noexcept
-    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
-    Feature record: CXX_FEATURE:1cxx_nullptr
-    Feature record: CXX_FEATURE:1cxx_override
-    Feature record: CXX_FEATURE:1cxx_range_for
-    Feature record: CXX_FEATURE:1cxx_raw_string_literals
-    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
-    Feature record: CXX_FEATURE:1cxx_return_type_deduction
-    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
-    Feature record: CXX_FEATURE:1cxx_rvalue_references
-    Feature record: CXX_FEATURE:1cxx_sizeof_member
-    Feature record: CXX_FEATURE:1cxx_static_assert
-    Feature record: CXX_FEATURE:1cxx_strong_enums
-    Feature record: CXX_FEATURE:1cxx_template_template_parameters
-    Feature record: CXX_FEATURE:1cxx_thread_local
-    Feature record: CXX_FEATURE:1cxx_trailing_return_types
-    Feature record: CXX_FEATURE:1cxx_unicode_literals
-    Feature record: CXX_FEATURE:1cxx_uniform_initialization
-    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
-    Feature record: CXX_FEATURE:1cxx_user_literals
-    Feature record: CXX_FEATURE:1cxx_variable_templates
-    Feature record: CXX_FEATURE:1cxx_variadic_macros
-    Feature record: CXX_FEATURE:1cxx_variadic_templates

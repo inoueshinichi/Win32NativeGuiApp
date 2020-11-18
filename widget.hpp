@@ -1,5 +1,5 @@
-#ifndef __WIDGET_HPP__
-#define __WIDGET_HPP__
+#ifndef __IS_WIDGET_HPP__
+#define __IS_WIDGET_HPP__
 
 #include "pch.hpp"
 #include "object.hpp"
@@ -9,64 +9,79 @@
 namespace Is
 {
     using std::string;
+    using std::size_t;
 
     class Widget : public Object
     {
-        static map<HWND, pair<ObjectPtr, size_t>> widget_map_; // <HWND, pair<shared_ptr<Object> inter_lock_count>>
-        HWND handler_widget_;
-        HWND handler_menu_;
-        HWND handler_statusbar_;
-        INITCOMMONCONTROLSEX common_control_;
-        UINT status_id_;
-        string status_message_;
-        WPARAM wparam_;
-        LPARAM lparam_;
+        using Registry_t = map<HWND, pair<HWND, pair<shared_ptr<Widget>, void()>>>;
+
         RECT rect_client_;
         RECT rect_window_;
         SIZE size_window_;
-        bool is_heap_location_;
-
-
-        static bool register_window_class()
-        {
-            if (!Object::instance())
-                return false;
-            
-            WNDCLASSEX wcex;
-            wcex.cbSize = sizeof(WNDCLASSEX);                       // Window ClassEx Size
-            wcex.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;      // Window Style
-            wcex.cbClsExtra = 0;                                    // Window Class Extra
-            wcex.cbWndExtra = 0;// DLGWINDOWEXTRA;                  // Window Handle Extra
-            wcex.hInstance = Object::instance();                    // Window Instance
-            wcex.hIcon = (HICON)LoadImage(NULL, MAKEINTRESOURCE(IDC_WINCVAPP), IMAGE_ICON, 0, 0, LR_SHARED);    // Window Icon       // = LoadIcon(hInstance, MAKEINTRESOURCE(IDC_WINCVAPP));          
-            wcex.hCursor = (HCURSOR)LoadImage(NULL, IDC_ARROW, IMAGE_CURSOR, 0, 0, LR_SHARED);                  // Window Cursor     // = LoadCursor(nullptr, IDC_ARROW);                            
-            wcex.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);                                           // Window Background
-            wcex.lpszMenuName = NULL;                                                                           // Window Menu       // = MAKEINTRESOURCEW(IDC_WINCVAPP_MENU); 
-            wcex.lpszClassName = (LPCTSTR)Object::window_class_name().c_str();                                  // Window Class Name
-            wcex.hIconSm = (HICON)LoadImage(NULL, MAKEINTRESOURCE(IDC_WINCVAPP), IMAGE_ICON, 0, 0, LR_SHARED);  // Window Small Icon // = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));     
-            wcex.lpfnWndProc = StaticWindowProc;                                                                // Window Procedure
-        }
+        //INITCOMMONCONTROLSEX common_control_;
 
     protected:
-        // Virtual Windows Messages
-        virtual void on_destroy() = 0;
-        virtual int on_create(HWND handler_widget) = 0;
-        virtual void on_close() = 0;
-        virtual void on_size() = 0;
-        virtual void on_move() = 0;
-        virtual void on_paint() = 0;
+
+        HWND handler_menu_;
+        HWND handler_statusbar_;
+        WPARAM wparam_;
+        LPARAM lparam_;
+        size_t status_id_;
+        string status_message_;
+
+
+        // Windows Messages
+        void onCreateEvent();
+        void onDestroyEvent();
+        void onCloseEvent(shared_ptr<CloseEvent> event);
+        void onHideEvent(shared_ptr<HideEvent> event);
+        void onShowEvent(shared_ptr<ShowEvent> event);
+        void onChangeEvent(shared_ptr<Event> event);
+        void onEnterEvent(shared_ptr<Event> event);
+        void onLeaveEvent(shared_ptr<Event> event);
+        void onKeyPressEvent(shared_ptr<KeyEvent> event);
+        void onKeyReleaseEvent(shared_ptr<KeyEvent> event);
+        void onFocusInEvent(shared_ptr<FocusEvent> event);
+        void onFocusOutEvent(shared_ptr<FocusEvent> event);
+        void onFocusNextChildEvent(shared_ptr<FocusEvent> event);
+        void onFocusPrevChildEvent(shared_ptr<FocusEvent> event);
+        void onResizeEvent(shared_ptr<ResizeEvent> event);
+        void onMoveEvent(shared_ptr<MoveEvent> event);
+        void onPaintEvent(shared_ptr<PaintEvent> event);
+        void onMousePressEvent(shared_ptr<MouseEvent> event);
+        void onMouseReleaseEvent(shared_ptr<MouseEvent> event);
+        void onMouseDbouleClickEvent(shared_ptr<MouseEvent> event);
+        void onMouseMoveEvent(shared_ptr<MouseEvent> event);
+        void onWheelEvent(shared_ptr<WheelEvent> event);
+        void onDropEvent(shared_ptr<DropEvent> event);
+        void onDragEnterEvent(shared_ptr<DragEnterEvent> event);
+        void onDragMoveEvent(shared_ptr<DragMoveEvent> event);
+        void onDragLeaveEvent(shared_ptr<DragLeaveEvent> event);
+        void onTableEvent(shared_ptr<TableEvent> event);
+
+        
+    public:
+        
 
         // マルチスレッドの各スレッドでStaticWindow(Dialog)Procを使うために必要
         void add_ref(HWND handler_widget);
         void sub_ref(HWND handler_widget);
 
+        void show(UINT style = SW_SHOW);
 
     public:
         Widget(shared_ptr<Widget> parent);
         virtual ~Widget();
 
-        void show(UINT style = SW_SHOW);
+
+        static Registry_t& widgetRegistry()
+        {
+            static Registry_t widget_registry = Registry_t();
+            return widget_registry;
+        }
+
+        
     }
 
 }
-#endif // __WIDGET_HPP__
+#endif // __IS_WIDGET_HPP__

@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake
+# Install script for directory: C:/Users/inoue/Desktop/Win32NativeGuiApp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Win32VSCodeCMake")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Win32NativeGuiApp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/InoueShinichi/Desktop/121_Win32/Win32VSCodeCMake/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/inoue/Desktop/Win32NativeGuiApp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

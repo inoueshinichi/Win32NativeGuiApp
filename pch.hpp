@@ -1,5 +1,5 @@
-#ifndef __PCH_HPP__
-#define __PCH_HPP__
+#ifndef __IS_PCH_HPP__
+#define __IS_PCH_HPP__
 
 /**
  * STL ライブラリ.
@@ -83,6 +83,8 @@ using namespace std::literals;
  */
 #include <Windows.h>
 #include <WinUser.h>
+#include <CommCtrl.h> 
+#include <atlbase.h>
 #include <atlstr.h>  // CString
 #include <tchar.h>
 
@@ -93,4 +95,4 @@ std::string return_current_datetime();
 
 
 
-#endif __PCH_HPP__
+#endif // __IS_PCH_HPP__

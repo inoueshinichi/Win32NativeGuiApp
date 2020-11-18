@@ -1,4 +1,7 @@
-#include "pch.h"
+#ifndef __IS_EXCEPTION_HPP__
+#define __IS_EXCEPTION_HPP__
+
+#include "pch.hpp"
 
 #if defined(_MSC_VER)
 #define __func__ __FUNCTION__
@@ -104,10 +107,10 @@ namespace Is
     /**
      * Win32 API のエラーを捕捉してメッセージダイアログで通知.
      */
-    void win32api_error(HWND hWnd = NULL, string title = string())
+    void win32api_error(HWND hWnd = NULL, const CString& title = CString())
     {
         DWORD errCode = ::GetLastError();
-        LPVOID lpMsgBuff; // エラーメッセージ用バッファポインタ
+        LPTSTR lpMsgBuff = nullptr; // エラーメッセージ用バッファポインタ
 
         FormatMessage(
             FORMAT_MESSAGE_ALLOCATE_BUFFER | // テキストのメモリ割り当てを要求
@@ -116,14 +119,14 @@ namespace Is
             NULL,
             errCode,
             MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // 言語(日本語)を設定
-            &lpMsgBuff,                                // メッセージテキストが保存されるバッファへのポインタ
+            lpMsgBuff,                        // メッセージテキストが保存されるバッファへのポインタ
             0,
             NULL
         );
 
         if (hWnd)
         {
-            MessageBox(hWnd, lpMsgBuff, title.c_str(), MB_OK | MB_ICONINFORMATION);
+            MessageBox(hWnd, (LPCTSTR)lpMsgBuff, (LPCTSTR)title, MB_OK | MB_ICONINFORMATION);
         }
         else
         {
@@ -172,3 +175,6 @@ namespace Is
         return format;
     }
 }
+
+
+#endif // __IS_EXCEPTION_HPP__

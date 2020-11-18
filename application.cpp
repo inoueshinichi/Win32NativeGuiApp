@@ -1,54 +1,53 @@
 #include "application.hpp"
-
 #include "exception.hpp"
 
 namespace Is
 {
-   
-
-    /**
-     * アプリケーションの初期化
-     * */
-    void Application::_init()
-    {
-        // ショートカットキー定義の読み込み
-	    handler_shortcut_key_table_ = LoadAccelerators(handler_instance_, MAKEINTRESOURCE(IDC_WINCVAPP));
-
-        // エントリーウィンドウの生成
-        _init_instance();
-    }
+   using std::string;
+   using std::size_t;
 
 
-    /**
-     * エントリーウィンドウの生成
-     * 本当は例外処理が必要だと思う
-     * */
-    bool Application::_init_instance()
-    {
-        bool ret = true;
+   /**
+    * インスタンス初期化処理
+    * */
+   void Application::_initialize()
+   {
+       string& win_cls_name = Application::windowClassName();
+       HINSTANCE& instance = Application::instance();
+       HICON& icon = Application::icon();
+       HICON& small_icon = Application::smallIcon();
+       HCURSOR& cursor = Application::cursor();
+       HBRUSH& bgcolor = Application::background();
 
-        window_class_name_ = "MyWindowClass";
-        widget_count_ = 0;
-
-        // インスタンスハンドルの取得
-        handler_instance_ = ::GetModuleHandle(NULL);
-        if (!handler_instance_)
-        {
-            win32api_error();
-            ret = false;
-        }
-        return ret;
-    }
-
+        // Window Classの生成
+        WNDCLASSEX wcex;
+        wcex.cbSize = sizeof(WNDCLASSEX);                       // Window ClassEx Size
+        wcex.style = CS_HREDRAW | CS_VREDRAW | CS_DBLCLKS;      // Window Style
+        wcex.cbClsExtra = 0;                                    // Window Class Extra
+        wcex.cbWndExtra = 0;// DLGWINDOWEXTRA;                  // Window Handle Extra
+        wcex.hInstance = instance;                              // Window Instance
+        wcex.hIcon = icon;                                      // Window Icon                
+        wcex.hCursor = cursor;                                  // Window Cursor                                
+        wcex.hbrBackground = bgcolor;                           // Window Background
+        wcex.lpszMenuName = NULL;                               // Window Menu       // = MAKEINTRESOURCEW(IDC_WINCVAPP_MENU); 
+        wcex.lpszClassName = (LPCTSTR)win_cls_name.c_str();     // Window Class Name
+        wcex.hIconSm = small_icon;                              // Window Small Icon      
+        wcex.lpfnWndProc = Widget::WindowProc;                  // Window Procedure
+   }
 
     /**
      * インスタンス終了処理
      * */
-    bool Application::_exit_instance()
+    void Application::_release()
     {
         // ウィンドウクラスの登録を解除
-        return UnregisterClass(window_class_name_.c_str(), handler_instance_);
+        string& win_cls_name = Application::windowClassName();
+        HINSTANCE& instance = Application::instance();
+        UnregisterClass(win_cls_name.c_str(), instance);
     }
+
+
+
 
 
     /**
@@ -56,10 +55,11 @@ namespace Is
      * */
     bool Application::exe()
     {
-        if (widget_count_ > 0)
+        size_t& widget_count = Application::widgetCount();
+        if (widget_count > 0)
             return run();
         else
-            return _exit_instance();
+            return false;
     }
 
 
@@ -70,6 +70,7 @@ namespace Is
     {
         MSG msg;            // Windows Message情報
         size_t loop_count = 0; // メッセージループのカウント回数
+        HACCEL& hanlder_keyboard_accel = Applicaiton::accelHandle();
 
         // メッセージループ
         while (true)
@@ -83,9 +84,9 @@ namespace Is
                     bool flag = true;
 
                     // Dialog宛のメッセージかチェック
-                    if (Is::Widget::widget_map.size() > 0)
+                    if (Widget::widget_map.size() > 0)
                     {
-                        for (auto iter = Is::Widget::widget_map.cbegin(); iter != Is::Widget::widget_map.cend(); ++iter)
+                        for (auto iter = Widget::widget_map.cbegin(); iter != Is::Widget::widget_map.cend(); ++iter)
                         {
                             HWND handler_widget = iter->first;
                             if (IsDialogMessage(handler_widget, &msg))
@@ -101,7 +102,7 @@ namespace Is
                     if (flag)
                     {
                         // 独自定義のショートカットキーの検出
-                        if (!TranslateAccelerator(msg.hwnd, handler_shortcut_key_table_, &msg))
+                        if (!TranslateAccelerator(msg.hwnd, hanlder_keyboard_accel, &msg))
                         {
                             // ウィンドウメッセージの送出
                             DispatchMessage(&msg);    // DispatchMessageでウィンドウプロシージャに送出
@@ -123,8 +124,9 @@ namespace Is
                     loop_count++;
                 }
             }
-
         }
+
+        return true;
     }
 
 

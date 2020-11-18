@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.14.0)
 
+# C++ 言語専用
+project(Win32NativeGuiApp LANGUAGES CXX VERSION 0.1.0)
+
 # ---------- MSVC セッティング ---------- #
 
 # ソースコードでUTF-8を使う(MSVC++)
@@ -13,12 +16,9 @@ add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>")
 set(ENC_MANIFEST_FILE "encoding_utf8.exe.manifest")
 
 # WindowsのWinMainエントリーポイントを使用可能にする
-set(CMAKE_WIN32_EXECUTABLE ON)
+# set(CMAKE_WIN32_EXECUTABLE ON)
 
 # ---------- MSVC セッティング ---------- #
-
-# C++ 言語専用
-project(Win32VSCodeCMake LANGUAGES CXX VERSION 0.1.0)
 
 # 詳細情報の表示
 set(CMAKE_VERBOSE_MAKEFILE ON)
@@ -29,9 +29,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # C++標準に準拠しない拡張機能を無効化
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "--pedantic-errors")
-
-
-
 
 
 
@@ -49,7 +46,7 @@ include(CTest)
 enable_testing()
 
 # 実行ファイル
-add_executable(Win32VSCodeCMake
+add_executable(${PROJECT_NAME}
                 "${ENC_MANIFEST_FILE}" # Encoding UTF-8 マニフェスト
                 "${INCLUDE_FILES}"     # ヘッダーファイル
                 "${SRC_FILES}"         # ソースファイル

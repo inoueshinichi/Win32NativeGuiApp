@@ -12,7 +12,9 @@ namespace Is
     
     class Object
     {
-        const static size_t max_length_ = 1024;
+        static const size_t max_length_ = 1024;
+
+    protected:
         shared_ptr<Object> parent_;
 
     public:

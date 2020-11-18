@@ -9,6 +9,9 @@
         "xlocmon": "cpp",
         "xlocnum": "cpp",
         "xtr1common": "cpp",
-        "memory": "cpp"
+        "memory": "cpp",
+        "unordered_map": "cpp",
+        "iterator": "cpp",
+        "xutility": "cpp"
     }
 }

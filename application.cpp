@@ -1,5 +1,7 @@
 #include "application.hpp"
 #include "exception.hpp"
+#include "widget.hpp"
+#include "event.hpp"
 
 namespace Is
 {
@@ -7,12 +9,128 @@ namespace Is
    using std::size_t;
 
 
+    /**
+     * コンストラクタ
+     * */
+    Application::Application(int argc, char** argv)
+    : argc_(argc), argv_(argv)
+    {
+        // Windows初期化
+        _initialize();
+    }
+
+
+    /**
+     * デストラクタ
+     * */
+    Application::~Application()
+    {
+        // Windows破棄
+        _release();
+    }
+
+
+    // static func
+    size_t widgetCount()
+    {
+        // TODO: スレッドセーフにすること
+        EventDispatcher::Registry_t& widget = EventDispatcher::widget();
+        return widget.size(); 
+    }
+
+
+    // static func
+    HINSTANCE& instance()
+    {
+        // インスタンスハンドルの取得
+        static HINSTANCE handler_process_instance_ = ::GetModuleHandle(NULL);
+        if (!handler_process_instance_)
+        {
+            win32api_error();
+        }
+        return handler_process_instance_; 
+    }
+
+
+    // static func
+    CString& windowClassName()
+    {
+        static CString window_class_name_ = "MyWindowClass";
+        return window_class_name_;
+    }
+
+
+    // static func
+    static HICON& icon()
+    {
+        static HICON handler_icon_ = (HICON)LoadImage(NULL, MAKEINTRESOURCE(IDC_WINCVAPP), IMAGE_ICON, 0, 0, LR_SHARED);
+        // = LoadIcon(hInstance, MAKEINTRESOURCE(IDC_WINCVAPP)); 
+        if (!handler_icon_)
+        {
+            win32api_error();
+        }
+        return handler_icon_;
+    }
+
+
+    // static func
+    HICON& smallIcon()
+    {
+        static HICON handler_small_icon_ = (HICON)LoadImage(NULL, MAKEINTRESOURCE(IDI_SMALL), IMAGE_ICON, 0, 0, LR_SHARED);
+        // LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+        if (!handler_small_icon_)
+        {
+            win32api_error();
+        }
+        return handler_small_icon_;
+    }
+
+
+    // static func
+    HCURSOR& cursor()
+    {
+        static HCURSOR& handler_cursor_ = (HCURSOR)LoadImage(NULL, IDC_ARROW, IMAGE_CURSOR, 0, 0, LR_SHARED); 
+        // = LoadCursor(nullptr, IDC_ARROW); 
+        if (!handler_cursor_)
+        {
+            win32api_error();
+        }
+        return handler_cursor_;
+    }
+
+
+    // static func
+    HBRUSH& background()
+    {
+        static HBRUSH handler_background_color_ = (HBRUSH)GetStockObject(WHITE_BRUSH); 
+        if (!handler_background_color_)
+        {
+            win32api_error();
+        }
+        return handler_background_color_;
+    }
+
+
+    // static func
+    HACCEL& accelHandle()
+    {
+        // キーボードアクセラレータ
+        HINSTANCE& instance = Application::instance();
+        static HACCEL handler_keyboard_accel_ =  LoadAccelerators(instance, MAKEINTRESOURCE(IDC_WINCVAPP));
+        if (!handler_keyboard_accel_)
+        {
+            win32api_error();
+        }
+        return handler_keyboard_accel_;
+    }
+
+
    /**
     * インスタンス初期化処理
     * */
    void Application::_initialize()
    {
-       string& win_cls_name = Application::windowClassName();
+       CString& win_cls_name = Application::windowClassName();
        HINSTANCE& instance = Application::instance();
        HICON& icon = Application::icon();
        HICON& small_icon = Application::smallIcon();
@@ -30,9 +148,9 @@ namespace Is
         wcex.hCursor = cursor;                                  // Window Cursor                                
         wcex.hbrBackground = bgcolor;                           // Window Background
         wcex.lpszMenuName = NULL;                               // Window Menu       // = MAKEINTRESOURCEW(IDC_WINCVAPP_MENU); 
-        wcex.lpszClassName = (LPCTSTR)win_cls_name.c_str();     // Window Class Name
+        wcex.lpszClassName = (LPCTSTR)win_cls_name;             // Window Class Name
         wcex.hIconSm = small_icon;                              // Window Small Icon      
-        wcex.lpfnWndProc = Widget::WindowProc;                  // Window Procedure
+        wcex.lpfnWndProc = EventDispatcher::entryProcedure;     // Window Procedure
    }
 
     /**
@@ -41,13 +159,10 @@ namespace Is
     void Application::_release()
     {
         // ウィンドウクラスの登録を解除
-        string& win_cls_name = Application::windowClassName();
+        CString& win_cls_name = Application::windowClassName();
         HINSTANCE& instance = Application::instance();
-        UnregisterClass(win_cls_name.c_str(), instance);
+        UnregisterClass((LPCTSTR)win_cls_name, instance);
     }
-
-
-
 
 
     /**
@@ -55,7 +170,7 @@ namespace Is
      * */
     bool Application::exe()
     {
-        size_t& widget_count = Application::widgetCount();
+        size_t widget_count = Application::widgetCount();
         if (widget_count > 0)
             return run();
         else
@@ -68,9 +183,9 @@ namespace Is
      * */
     bool Application::run()
     {
-        MSG msg;            // Windows Message情報
+        MSG msg;               // Windows Message情報
         size_t loop_count = 0; // メッセージループのカウント回数
-        HACCEL& hanlder_keyboard_accel = Applicaiton::accelHandle();
+        HACCEL& hanlder_keyboard_accel = Application::accelHandle();
 
         // メッセージループ
         while (true)
@@ -81,25 +196,25 @@ namespace Is
                 // メッセージを取得
                 if (GetMessage(&msg, NULL, 0, 0) > 0)
                 {
-                    bool flag = true;
+                    bool window_flag = true;
+                    auto& widget_registry = EventDispatcher::widget();
 
                     // Dialog宛のメッセージかチェック
-                    if (Widget::widget_map.size() > 0)
+                    if (widget_registry.size() > 0)
                     {
-                        for (auto iter = Widget::widget_map.cbegin(); iter != Is::Widget::widget_map.cend(); ++iter)
+                        for (auto iter = widget_registry.cbegin(); iter != widget_registry.cend(); ++iter)
                         {
-                            HWND handler_widget = iter->first;
-                            if (IsDialogMessage(handler_widget, &msg))
+                            if (IsDialogMessage(iter->first, &msg))
                             {
                                 // 該当するDialogへのメッセージ
-                                flag = false;
+                                window_flag = false;
                                 break;
                             }
                         }
                     }
 
                     // Window宛のメッセージ処理
-                    if (flag)
+                    if (window_flag)
                     {
                         // 独自定義のショートカットキーの検出
                         if (!TranslateAccelerator(msg.hwnd, hanlder_keyboard_accel, &msg))
@@ -119,7 +234,7 @@ namespace Is
             } else
             {
                 // メッセージが来ていない場合，アイドル処理
-                if (on_idle(loop_count))
+                if (onIdle(loop_count))
                 {
                     loop_count++;
                 }
@@ -133,7 +248,7 @@ namespace Is
     /**
      * アイドル処理
      * */
-    bool Application::on_idle(size_t &message_count)
+    bool Application::onIdle(size_t &message_count)
     {
         // これを入れないと，Runのメッセージループが回り続けて，CPUリソースをどか食いする
         if (message_count > criteria_message_count_)

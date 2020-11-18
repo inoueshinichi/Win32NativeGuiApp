@@ -2,85 +2,71 @@
 #define __IS_WIDGET_HPP__
 
 #include "pch.hpp"
+#include "exception.hpp"
 #include "object.hpp"
+#include "event.hpp"
 
 
 
 namespace Is
 {
-    using std::string;
     using std::size_t;
 
     class Widget : public Object
     {
-        using Registry_t = map<HWND, pair<HWND, pair<shared_ptr<Widget>, void()>>>;
-
         RECT rect_client_;
-        RECT rect_window_;
-        SIZE size_window_;
         //INITCOMMONCONTROLSEX common_control_;
 
+        void createWindow(const CString& window_title, int width, int height);
+
     protected:
-
-        HWND handler_menu_;
+        CString window_title_;
+        HMENU handler_menu_;
         HWND handler_statusbar_;
-        WPARAM wparam_;
-        LPARAM lparam_;
         size_t status_id_;
-        string status_message_;
+        CString status_message_;
 
-
-        // Windows Messages
-        void onCreateEvent();
-        void onDestroyEvent();
-        void onCloseEvent(shared_ptr<CloseEvent> event);
-        void onHideEvent(shared_ptr<HideEvent> event);
-        void onShowEvent(shared_ptr<ShowEvent> event);
-        void onChangeEvent(shared_ptr<Event> event);
-        void onEnterEvent(shared_ptr<Event> event);
-        void onLeaveEvent(shared_ptr<Event> event);
-        void onKeyPressEvent(shared_ptr<KeyEvent> event);
-        void onKeyReleaseEvent(shared_ptr<KeyEvent> event);
-        void onFocusInEvent(shared_ptr<FocusEvent> event);
-        void onFocusOutEvent(shared_ptr<FocusEvent> event);
-        void onFocusNextChildEvent(shared_ptr<FocusEvent> event);
-        void onFocusPrevChildEvent(shared_ptr<FocusEvent> event);
-        void onResizeEvent(shared_ptr<ResizeEvent> event);
-        void onMoveEvent(shared_ptr<MoveEvent> event);
-        void onPaintEvent(shared_ptr<PaintEvent> event);
-        void onMousePressEvent(shared_ptr<MouseEvent> event);
-        void onMouseReleaseEvent(shared_ptr<MouseEvent> event);
-        void onMouseDbouleClickEvent(shared_ptr<MouseEvent> event);
-        void onMouseMoveEvent(shared_ptr<MouseEvent> event);
-        void onWheelEvent(shared_ptr<WheelEvent> event);
-        void onDropEvent(shared_ptr<DropEvent> event);
-        void onDragEnterEvent(shared_ptr<DragEnterEvent> event);
-        void onDragMoveEvent(shared_ptr<DragMoveEvent> event);
-        void onDragLeaveEvent(shared_ptr<DragLeaveEvent> event);
-        void onTableEvent(shared_ptr<TableEvent> event);
-
-        
-    public:
-        
-
-        // マルチスレッドの各スレッドでStaticWindow(Dialog)Procを使うために必要
-        void add_ref(HWND handler_widget);
-        void sub_ref(HWND handler_widget);
-
-        void show(UINT style = SW_SHOW);
 
     public:
         Widget(shared_ptr<Widget> parent);
         virtual ~Widget();
 
-
-        static Registry_t& widgetRegistry()
-        {
-            static Registry_t widget_registry = Registry_t();
-            return widget_registry;
-        }
-
         
+        void show();
+        RECT windowSize();
+        RECT clientSize();
+        
+        
+        // Windows Messages
+        void onCreate();
+        void onDestroy();
+        void onClose(shared_ptr<CloseEvent> event);
+        void onHide(shared_ptr<HideEvent> event);
+        void onShow(shared_ptr<ShowEvent> event);
+        void onChange(shared_ptr<Event> event);
+        void onEnter(shared_ptr<Event> event);
+        void onLeave(shared_ptr<Event> event);
+        void onKeyPress(shared_ptr<KeyEvent> event);
+        void onKeyRelease(shared_ptr<KeyEvent> event);
+        void onFocusIn(shared_ptr<FocusEvent> event);
+        void onFocusOut(shared_ptr<FocusEvent> event);
+        void onFocusNextChild(shared_ptr<FocusEvent> event);
+        void onFocusPrevChild(shared_ptr<FocusEvent> event);
+        void onResize(shared_ptr<ResizeEvent> event);
+        void onMove(shared_ptr<MoveEvent> event);
+        void onPaint(shared_ptr<PaintEvent> event);
+        void onMousePress(shared_ptr<MouseEvent> event);
+        void onMouseRelease(shared_ptr<MouseEvent> event);
+        void onMouseDbouleClick(shared_ptr<MouseEvent> event);
+        void onMouseMove(shared_ptr<MouseEvent> event);
+        void onWheel(shared_ptr<WheelEvent> event);
+        void onDrop(shared_ptr<DropEvent> event);
+        void onDragEnter(shared_ptr<DragEnterEvent> event);
+        void onDragMove(shared_ptr<DragMoveEvent> event);
+        void onDragLeave(shared_ptr<DragLeaveEvent> event);
+        void onTable(shared_ptr<TableEvent> event);
+
+ 
     }
 
 }
